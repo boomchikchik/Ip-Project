@@ -1,5 +1,10 @@
 from queries_sql import mycon, cursor
 
+#Creating a database
+def create_database():
+    cursor.execute("CREATE DATABASE IF NOT EXISTS vehiclemanagement")
+    mycon.database = 'vehiclemanagement'
+
 #Creating all tables in the database
 def create_tables():
     cursor.execute("""
