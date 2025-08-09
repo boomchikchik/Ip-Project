@@ -2,7 +2,6 @@ from queries_sql import mycon, cursor
 
 #Creating all tables in the database
 def create_tables():
-
     cursor.execute("""
                    CREATE TABLE IF NOT EXISTS users
                    (user_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -66,7 +65,7 @@ def create_tables():
                    """)
     mycon.commit()
 
-# Inserting data into the tables
+# Inserting data into the table-user
 def in_users(username, email, phone, address, password, user_role):
     try:
         cursor.execute("""
@@ -78,6 +77,7 @@ def in_users(username, email, phone, address, password, user_role):
         print(f"Error inserting user: {e}")
         mycon.rollback()
 
+# Inserting data into the table-vehicles
 def in_vehicles(vehicle_no, model, type, user_id):
     try:
         cursor.execute("""
@@ -89,6 +89,7 @@ def in_vehicles(vehicle_no, model, type, user_id):
         print(f"Error inserting vehicle: {e}")
         mycon.rollback()
 
+# Inserting data into the table-services
 def in_services(service_type):
     try:
         cursor.execute("""
@@ -100,6 +101,7 @@ def in_services(service_type):
         print(f"Error inserting service: {e}")
         mycon.rollback()
 
+# Inserting data into the table-service_bookings
 def in_service_bookings(vehicle_no, service_type, booking_date, status):
     try:
         cursor.execute("""
@@ -111,6 +113,7 @@ def in_service_bookings(vehicle_no, service_type, booking_date, status):
         print(f"Error inserting service booking: {e}")
         mycon.rollback()
 
+# Inserting data into the table-mechanics_info
 def in_mechanics(mechanic):
     try:
         cursor.execute("""
@@ -122,6 +125,7 @@ def in_mechanics(mechanic):
         print(f"Error inserting mechanic: {e}")
         mycon.rollback()
 
+# Inserting data into the table-mechanic_assignments
 def in_mechanic_assignments(service_id, mechanic_id):
     try:
         cursor.execute("""
@@ -133,6 +137,7 @@ def in_mechanic_assignments(service_id, mechanic_id):
         print(f"Error inserting mechanic assignment: {e}")
         mycon.rollback()
 
+# Inserting data into the table-invoices
 def in_invoices(user_id, service_id, amount, invoice_date):
     try:
         cursor.execute("""
@@ -144,6 +149,7 @@ def in_invoices(user_id, service_id, amount, invoice_date):
         print(f"Error inserting invoice: {e}")
         mycon.rollback()
 
+# Inserting data into the table-feedback
 def in_feedback(service_id, rating, comments):
     try:
         cursor.execute("""
