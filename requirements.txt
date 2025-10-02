@@ -4,4 +4,4 @@ stdiomask
 colorama 
 pymysql
 sqlalchemy
-
+tabulate
